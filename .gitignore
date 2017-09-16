@@ -1,0 +1,7 @@
+/vendor/
+.idea/
+composer.lock
+.twgit_features_subject
+
+/builds/
+/database/
