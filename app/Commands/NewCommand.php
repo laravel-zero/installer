@@ -2,17 +2,17 @@
 
 namespace App\Commands;
 
-use LaravelZero\Framework\Commands\AbstractCommand;
+use LaravelZero\Framework\Commands\Command;
 use LaravelZero\Framework\Contracts\Providers\Composer as ComposerContract;
 
-class NewCommand extends AbstractCommand
+class NewCommand extends Command
 {
     /**
      * The name and signature of the command.
      *
      * @var string
      */
-    protected $signature = 'new {name}';
+    protected $signature = 'new {name=laravel-zero}';
 
     /**
      * The description of the command.
