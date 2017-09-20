@@ -34,4 +34,19 @@ return [
             App\Commands\NewCommand::class,
         ],
     ],
+
+    /*
+     * Here goes the application cache configuration.
+     *
+     * You may want to review the Laravel supporter drivers in:
+     * https://github.com/laravel/laravel/blob/master/config/cache.php
+     */
+    'cache' => [
+        'default' => 'array',
+        'stores' => [
+            'array' => [
+                'driver' => 'array',
+            ],
+        ],
+    ],
 ];
