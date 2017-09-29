@@ -4,8 +4,8 @@
     "keywords": ["framework", "laravel", "console", "zero"],
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/laravel-zero/laravel-zero/issues",
-        "source": "https://github.com/laravel-zero/laravel-zero"
+        "issues": "https://github.com/laravel-zero/installer/issues",
+        "source": "https://github.com/laravel-zero/installer"
     },
     "authors": [
         {
