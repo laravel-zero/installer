@@ -41,12 +41,8 @@ class NewCommandTest extends TestCase
         $this->app->call($command->getName(), ['name' => 'dummy']);
         $output = $this->app->output();
 
-        $this->assertTrue(
-            strpos($output, 'Crafting application..') !== false
-        );
+        $this->assertContains('Crafting application..', $output);
 
-        $this->assertTrue(
-            strpos($output, 'Application ready! Build something amazing.') !== false
-        );
+        $this->assertContains('Application ready! Build something amazing.', $output);
     }
 }
