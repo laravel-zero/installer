@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "laravel-zero/framework": "dev-hotfix-4.0.25"
+        "laravel-zero/framework": "4.0.*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
