@@ -1,10 +1,11 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use Mockery;
 use Tests\TestCase;
 use App\Commands\NewCommand;
+use Illuminate\Support\Facades\Artisan;
 use LaravelZero\Framework\Contracts\Providers\Composer as ComposerContract;
 
 class NewCommandTest extends TestCase
@@ -17,10 +18,7 @@ class NewCommandTest extends TestCase
     /** @test */
     public function it_checks_if_command_is_registered(): void
     {
-        $command = $this->app->getContainer()
-            ->make(NewCommand::class);
-
-        $this->assertArrayHasKey($command->getName(), $this->app->all());
+        $this->assertArrayHasKey('new', Artisan::all());
     }
 
     /** @test */
@@ -29,17 +27,13 @@ class NewCommandTest extends TestCase
         $composer = Mockery::mock(ComposerContract::class);
         $composer->shouldReceive('createProject')
             ->once()
-            ->andReturn($composer);
+            ->andReturn(true);
 
-        $this->app->getContainer()
-            ->instance(ComposerContract::class, $composer);
+        $this->app->instance(ComposerContract::class, $composer);
 
-        $command = $this->app->getContainer()
-            ->make(NewCommand::class);
+        Artisan::call('new', ['name' => 'dummy']);
 
-        $this->app->add($command);
-        $this->app->call($command->getName(), ['name' => 'dummy']);
-        $output = $this->app->output();
+        $output = Artisan::output();
 
         $this->assertContains('Crafting application..', $output);
 
