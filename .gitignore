@@ -1,6 +1,4 @@
-/vendor/
-.idea/
-.twgit_features_subject
-
-/builds/
-/database/
+/vendor
+/.idea
+/.vscode
+/.vagrant
