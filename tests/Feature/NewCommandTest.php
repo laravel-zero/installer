@@ -2,34 +2,29 @@
 
 namespace Tests\Feature;
 
-use Mockery;
 use Tests\TestCase;
-use App\Commands\NewCommand;
 use Illuminate\Support\Facades\Artisan;
 use LaravelZero\Framework\Contracts\Providers\Composer as ComposerContract;
 
 class NewCommandTest extends TestCase
 {
-    public function tearDown()
-    {
-        Mockery::close();
-    }
-
-    /** @test */
-    public function it_checks_if_command_is_registered(): void
+    /**
+     * A basic test example.
+     */
+    public function checksIfTheCommandIsRegisteredTest(): void
     {
         $this->assertArrayHasKey('new', Artisan::all());
     }
 
     /** @test */
-    public function it_creates_a_new_project(): void
+    public function createsNewProjectTest(): void
     {
-        $composer = Mockery::mock(ComposerContract::class);
-        $composer->shouldReceive('createProject')
-            ->once()
-            ->andReturn(true);
+        $composerMock = $this->createMock(ComposerContract::class);
+        $composerMock->expects($this->once())
+            ->method('createProject')
+            ->willReturn(true);
 
-        $this->app->instance(ComposerContract::class, $composer);
+        $this->app->instance(ComposerContract::class, $composerMock);
 
         Artisan::call('new', ['name' => 'dummy']);
 
