@@ -9,3 +9,4 @@ composer.lock      export-ignore
 phpunit.xml        export-ignore
 LICENSE.md         export-ignore
 README.md          export-ignore
+laravel-zero       export-ignore
