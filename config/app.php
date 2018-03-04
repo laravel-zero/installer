@@ -1,7 +1,41 @@
 <?php
 
 return [
-    'name' => 'Laravel Zero Installer',
-    'version' => '1.1.10',
-    'production' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    |
+    */
+    'name' => 'Laravel Zero',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "version" your application is currently running
+    | in. You may want to follow the "Semantic Versioning" - Given a version
+    | number MAJOR.MINOR.PATCH when an update happens: https://semver.org.
+    |
+    */
+    'version' => app('git.version'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Environment
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "environment" your application is currently
+    | running in. This may determine how you prefer to configure various
+    | services your application utilizes. Should be true in production.
+    |
+    */
+    'production' => false,
+
 ];
