@@ -3,7 +3,7 @@
 namespace App\Commands;
 
 use LaravelZero\Framework\Commands\Command;
-use LaravelZero\Framework\Contracts\Providers\Composer as ComposerContract;
+use LaravelZero\Framework\Contracts\Providers\ComposerContract;
 
 class NewCommand extends Command
 {

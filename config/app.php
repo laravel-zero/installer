@@ -12,7 +12,8 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-    'name' => 'Laravel Zero',
+
+    'name' => 'Installer',
 
     /*
     |--------------------------------------------------------------------------
@@ -24,7 +25,8 @@ return [
     | number MAJOR.MINOR.PATCH when an update happens: https://semver.org.
     |
     */
-    'version' => 'v2.0.5',
+
+    'version' => app('git.version'),
 
     /*
     |--------------------------------------------------------------------------
@@ -36,6 +38,22 @@ return [
     | services your application utilizes. Should be true in production.
     |
     */
+
     'production' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Autoloaded Service Providers
+    |--------------------------------------------------------------------------
+    |
+    | The service providers listed here will be automatically loaded on the
+    | request to your application. Feel free to add your own services to
+    | this array to grant expanded functionality to your applications.
+    |
+    */
+
+    'providers' => [
+        App\Providers\AppServiceProvider::class,
+    ],
 
 ];
