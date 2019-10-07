@@ -24,14 +24,14 @@ class NewCommand extends Command
     /**
      * Holds an instance of the composer service.
      *
-     * @var \LaravelZero\Framework\Contracts\Providers\Composer
+     * @var \LaravelZero\Framework\Contracts\Providers\ComposerContract
      */
     protected $composer;
 
     /**
      * Creates a new instance of the NewCommand class.
      *
-     * @param \LaravelZero\Framework\Contracts\Providers\Composer $composer
+     * @param \LaravelZero\Framework\Contracts\Providers\ComposerContract $composer
      */
     public function __construct(ComposerContract $composer)
     {
