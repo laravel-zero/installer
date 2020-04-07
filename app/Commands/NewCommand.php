@@ -4,6 +4,8 @@ namespace App\Commands;
 
 use LaravelZero\Framework\Commands\Command;
 use LaravelZero\Framework\Contracts\Providers\ComposerContract;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 class NewCommand extends Command
 {
@@ -40,6 +42,18 @@ class NewCommand extends Command
         $this->composer = $composer;
     }
 
+    public function renameNewApp($projectName)
+    {
+        $process = new Process('php application app:rename ' . $projectName, $projectName);
+        $process->run();
+
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
+
+        $this->info($process->getOutput());
+    }
+
     /**
      * Execute the command. Here goes the code.
      *
@@ -54,6 +68,8 @@ class NewCommand extends Command
             $this->argument('name'),
             ['--prefer-dist']
         );
+
+        $this->renameNewApp($this->argument('name'));
 
         $this->comment('Application ready! Build something amazing.');
     }
