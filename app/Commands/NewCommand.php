@@ -4,6 +4,7 @@ namespace App\Commands;
 
 use LaravelZero\Framework\Commands\Command;
 use LaravelZero\Framework\Contracts\Providers\ComposerContract;
+use Symfony\Component\Process\Process;
 
 class NewCommand extends Command
 {
@@ -47,13 +48,25 @@ class NewCommand extends Command
      */
     public function handle(): void
     {
+        $appPath = $this->argument('name');
+        $appName = basename($appPath);
+
         $this->info('Crafting application..');
 
         $this->composer->createProject(
             'laravel-zero/laravel-zero',
-            $this->argument('name'),
+            $appPath,
             ['--prefer-dist']
         );
+
+        $this->line('');
+
+        $process = Process::fromShellCommandline(
+            "php application app:rename {$appName}",
+            $appPath
+        )->mustRun();
+
+        $this->info($process->getOutput());
 
         $this->comment('Application ready! Build something amazing.');
     }
