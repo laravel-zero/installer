@@ -16,10 +16,10 @@
         }
     ],
     "require": {
-        "php": "^7.2.5"
+        "php": "^7.3"
     },
     "require-dev": {
-        "laravel-zero/framework": "^7.0",
+        "laravel-zero/framework": "^8.0",
         "padraic/phar-updater": "^1.0.6"
     },
     "autoload": {
