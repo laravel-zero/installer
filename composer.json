@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "laravel-zero/framework": "^8.5",
-        "padraic/phar-updater": "^1.0.6"
+        "laravel-zero/phar-updater": "^1.0.6"
     },
     "autoload": {
         "psr-4": {
