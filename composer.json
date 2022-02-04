@@ -19,7 +19,7 @@
         "php": "^8.0"
     },
     "require-dev": {
-        "laravel-zero/framework": "^8.5",
+        "laravel-zero/framework": "^9.0",
         "laravel-zero/phar-updater": "^1.0.6"
     },
     "autoload": {
