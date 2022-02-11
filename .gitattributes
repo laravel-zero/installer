@@ -1,8 +1,13 @@
 * text=auto
 
+/app              export-ignore
+/bootstrap        export-ignore
+/config           export-ignore
+/laravel-zero     export-ignore
 /.editorconfig    export-ignore
 /.gitattributes   export-ignore
 /.gitignore       export-ignore
+/box.json         export-ignore
 /BACKERS.md       export-ignore
 /CONTRIBUTING.md  export-ignore
 /CHANGELOG.md     export-ignore
