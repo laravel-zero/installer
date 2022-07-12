@@ -6,6 +6,7 @@
 /laravel-zero     export-ignore
 /.editorconfig    export-ignore
 /.gitattributes   export-ignore
+/.github          export-ignore
 /.gitignore       export-ignore
 /box.json         export-ignore
 /BACKERS.md       export-ignore
