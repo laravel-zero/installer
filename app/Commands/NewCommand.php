@@ -32,7 +32,7 @@ class NewCommand extends Command
     /**
      * Creates a new instance of the NewCommand class.
      *
-     * @param \LaravelZero\Framework\Contracts\Providers\ComposerContract $composer
+     * @param  \LaravelZero\Framework\Contracts\Providers\ComposerContract  $composer
      */
     public function __construct(ComposerContract $composer)
     {
