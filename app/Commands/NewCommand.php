@@ -31,8 +31,6 @@ class NewCommand extends Command
 
     /**
      * Creates a new instance of the NewCommand class.
-     *
-     * @param  \LaravelZero\Framework\Contracts\Providers\ComposerContract  $composer
      */
     public function __construct(ComposerContract $composer)
     {
@@ -43,8 +41,6 @@ class NewCommand extends Command
 
     /**
      * Execute the command. Here goes the code.
-     *
-     * @return void
      */
     public function handle(): void
     {
