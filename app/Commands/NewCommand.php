@@ -8,49 +8,25 @@ use Symfony\Component\Process\Process;
 
 class NewCommand extends Command
 {
-    /**
-     * The name and signature of the command.
-     *
-     * @var string
-     */
-    protected $signature = 'new {name=laravel-zero}';
+    private const DEV_BRANCH = 'dev-master';
 
-    /**
-     * The description of the command.
-     *
-     * @var string
-     */
+    /** {@inheritdoc} */
+    protected $signature = 'new {name=laravel-zero} {--dev : Installs the latest "development" release}';
+
+    /** {@inheritdoc} */
     protected $description = 'Create a new Laravel Zero application';
 
-    /**
-     * Holds an instance of the composer service.
-     *
-     * @var \LaravelZero\Framework\Contracts\Providers\ComposerContract
-     */
-    protected $composer;
-
-    /**
-     * Creates a new instance of the NewCommand class.
-     */
-    public function __construct(ComposerContract $composer)
-    {
-        parent::__construct();
-
-        $this->composer = $composer;
-    }
-
-    /**
-     * Execute the command. Here goes the code.
-     */
-    public function handle(): void
+    public function handle(ComposerContract $composer): void
     {
         $appPath = $this->argument('name');
         $appName = basename($appPath);
 
         $this->info('Crafting application..');
 
-        $this->composer->createProject(
-            'laravel-zero/laravel-zero',
+        $developmentBranch = ($this->option('dev') ? ':'.self::DEV_BRANCH : null);
+
+        $composer->createProject(
+            'laravel-zero/laravel-zero'.$developmentBranch,
             $appPath,
             ['--prefer-dist']
         );
