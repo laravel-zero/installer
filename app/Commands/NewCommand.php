@@ -6,22 +6,27 @@ use LaravelZero\Framework\Commands\Command;
 use LaravelZero\Framework\Contracts\Providers\ComposerContract;
 use Symfony\Component\Process\Process;
 
+use function Laravel\Prompts\info;
+use function Laravel\Prompts\text;
+
 class NewCommand extends Command
 {
     private const DEV_BRANCH = 'dev-master';
 
     /** {@inheritdoc} */
-    protected $signature = 'new {name=laravel-zero} {--dev : Installs the latest "development" release}';
+    protected $signature = 'new {name? : The name of the application}
+                {--dev : Install the latest "development" release}';
 
     /** {@inheritdoc} */
     protected $description = 'Create a new Laravel Zero application';
 
     public function handle(ComposerContract $composer): void
     {
-        $appPath = $this->argument('name');
+        $appPath = $this->argument('name') ?: text(label: 'Application name', required: true);
+
         $appName = basename($appPath);
 
-        $this->info('Crafting application..');
+        info('Crafting application...');
 
         $developmentBranch = ($this->option('dev') ? ':'.self::DEV_BRANCH : null);
 
@@ -31,14 +36,14 @@ class NewCommand extends Command
             ['--prefer-dist']
         );
 
-        $this->line('');
+        info('');
 
         $process = Process::fromShellCommandline(
             "php application app:rename {$appName}",
             $appPath
         )->mustRun();
 
-        $this->info($process->getOutput());
+        info($process->getOutput());
 
         $this->comment('Application ready! Build something amazing.');
     }
