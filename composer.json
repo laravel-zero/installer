@@ -16,10 +16,10 @@
         }
     ],
     "require": {
-        "php": "^8.2"
+        "php": "^8.3"
     },
     "require-dev": {
-        "laravel-zero/framework": "^12.1",
+        "laravel-zero/framework": "^13.0",
         "laravel-zero/phar-updater": "^1.4.2"
     },
     "autoload": {
@@ -37,7 +37,7 @@
         "sort-packages": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "8.2"
+            "php": "8.3"
         }
     },
     "minimum-stability": "dev",
